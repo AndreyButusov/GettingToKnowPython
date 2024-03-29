@@ -62,18 +62,41 @@
 # Будем считать, что на вход подается только одно слово, которое содержит либо только английские, 
 # либо только русские буквы.
 
-slovar = {'A': 1, 'E': 1, 'I': 1, 'O': 1, 'U': 1, 'L': 1, 'N': 1, 'S': 1, 'T': 1, 'R': 1,
-          'А': 1, 'В': 1, 'Е': 1, 'И': 1, 'Н': 1, 'О': 1, 'Р': 1, 'С': 1, 'Т': 1,
-          'Д': 2, 'К': 2, 'Л': 2, 'М': 2, 'П': 2, 'У': 2, 'D': 2, 'G': 2,
-          'Б': 3, 'Г': 3, 'Ё': 3, 'Ь': 3, 'Я': 3, 'B': 3, 'C': 3, 'M': 3, 'P': 3,
-          'Й': 4, 'Ы': 4, 'F': 4, 'H': 4, 'V': 4, 'W': 4, 'Y': 4,
-          'Ж': 5, 'З': 5, 'Х': 5, 'Ц': 5, 'Ч': 5, 'K': 5,
-          'Ш': 8, 'Э': 8, 'Ю': 8, 'J': 8, 'X': 8,
-          'Ф': 10, 'Щ': 10, 'Ъ': 10, 'Q': 10, 'Z': 10}
+# slovar = {'A': 1, 'E': 1, 'I': 1, 'O': 1, 'U': 1, 'L': 1, 'N': 1, 'S': 1, 'T': 1, 'R': 1,
+#           'А': 1, 'В': 1, 'Е': 1, 'И': 1, 'Н': 1, 'О': 1, 'Р': 1, 'С': 1, 'Т': 1,
+#           'Д': 2, 'К': 2, 'Л': 2, 'М': 2, 'П': 2, 'У': 2, 'D': 2, 'G': 2,
+#           'Б': 3, 'Г': 3, 'Ё': 3, 'Ь': 3, 'Я': 3, 'B': 3, 'C': 3, 'M': 3, 'P': 3,
+#           'Й': 4, 'Ы': 4, 'F': 4, 'H': 4, 'V': 4, 'W': 4, 'Y': 4,
+#           'Ж': 5, 'З': 5, 'Х': 5, 'Ц': 5, 'Ч': 5, 'K': 5,
+#           'Ш': 8, 'Э': 8, 'Ю': 8, 'J': 8, 'X': 8,
+#           'Ф': 10, 'Щ': 10, 'Ъ': 10, 'Q': 10, 'Z': 10}
 
-k = 'ноутбук'
-slovo = k.upper()
-result = 0
-for i in slovo:
-    result += slovar[i] 
-print(result)
+# k = 'ноутбук'
+# slovo = k.upper()
+# result = 0
+# for i in slovo:
+#     result += slovar[i] 
+# print(result)
+
+#Задача 3.(другим способом)
+dictionary_eng={"AEIOULNSTR":1, "DG":2, "BCMP":3, "FHVWY":4, "K":5, "JX":8, "QZ":10}
+
+dictionary_rus={"АВЕИНОРСТ":1, "ДКЛМПУ" : 2, "БГЁЬЯ" : 3, "ЙЫ" : 4, "ЖЗХЦЧ":5, "ШЭЮ" : 8, "ФЩЪ":10 }
+
+merged_dictionary = {**dictionary_eng, **dictionary_rus}
+
+letters_dictionary=dict()
+for key, value in merged_dictionary.items():
+    for letter in key:
+        letters_dictionary[letter]=value
+dictionary_eng=dictionary_rus=merged_dictionary=None
+
+k="ноутбук"
+k=k.upper()
+
+
+
+count=0
+for letter_word in k:
+    count+=letters_dictionary[letter_word]
+print(count)
