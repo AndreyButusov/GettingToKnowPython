@@ -21,11 +21,35 @@
 #19
 
 
-list_1 = [-5, 9, 0, 3, -1, -2, 1, 4, -2, 10, 2, 0, -9, 8, 10, -9, 0, -5, -5, 7]
-min_number = 0
-max_number = 10
+# list_1 = [-5, 9, 0, 3, -1, -2, 1, 4, -2, 10, 2, 0, -9, 8, 10, -9, 0, -5, -5, 7]
+# min_number = 0
+# max_number = 10
 
-for i in range(len(list_1)):
-    if list_1[i] >= min_number and list_1[i] <= max_number:
-        print(i)
+# for i in range(len(list_1)):
+#     if list_1[i] >= min_number and list_1[i] <= max_number:
+#         print(i)
 
+
+
+# Задача 2. Заполните массив элементами арифметической прогрессии. Её первый элемент a1 , 
+# разность d и количество элементов n будет задано автоматически. Формула для получения 
+# n-го члена прогрессии: an = a1 + (n-1) * d.
+# Пример
+# На входе:
+# a1 = 2
+# d = 3
+# n = 4
+# На выходе:
+# 2
+# 5
+# 8
+# 11
+
+a1 = 2
+d = 3
+n = 4
+
+def ArifmeticProgression(a1, d, n):
+    return print(*[f'{a1 + (i - 1) * d}' for i in range(1, n + 1)], sep='\n')
+
+ArifmeticProgression(a1, d, n)        
